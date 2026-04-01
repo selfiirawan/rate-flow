@@ -15,8 +15,17 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-    res.render("index.ejs");
+app.get("/", async (req, res) => {
+    try {
+        const response = await axios.get(`${API_URL}${API_KEY}/codes`);
+        const currencies = response.data.supported_codes;
+        // returns [["USD", "United States Dollar"], ["EUR", "Euro"], ...]
+
+        res.render("index.ejs", {currencies});
+    } catch (error) {
+        console.error(error);
+        res.render("index.ejs", {currencies: [], error: "Failed to load currency codes. Please try again."});
+    }
 });
 
 app.post("/convert", async (req, res) => {
@@ -33,10 +42,12 @@ app.post("/convert", async (req, res) => {
             fromCurrency,
             toCurrency, 
             amount,
+            currencies: response.data.supported_codes,
+            error: null,
         });
     } catch (error) {
         console.error(error);
-        res.render("index.ejs", {error: "Something went wrong. Please try again."});
+        res.render("index.ejs", {currencies: [], error: "Something went wrong. Please try again."});
     }
 })
 
