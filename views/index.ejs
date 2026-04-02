@@ -32,8 +32,11 @@
             <% }) %>
         </select>
 
+        <!-- CONVERT BUTTON -->
         <button type="submit">Convert</button>
 
+
+        <!-- RESULT BUTTON -->
         <% if (locals.convertedAmount) { %>
             <h2><%= amount %> <%= fromCurrency %> = <%= convertedAmount %> <%= toCurrency %></h2>
         <% } %>
