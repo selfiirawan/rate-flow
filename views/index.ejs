@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rate Flow</title>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
     <h1>Rate Flow</h1>
@@ -25,6 +26,14 @@
         </select>
 
         <button type="submit">Convert</button>
+
+        <% if (locals.convertedAmount) { %>
+            <h2><%= amount %> <%= fromCurrency %> = <%= convertedAmount %> <%= toCurrency %></h2>
+        <% } %>
+
+        <% if (locals.error) { %>
+            <p style="color: red;"><%= error %></p>
+        <% } %>
     </form>
 </body>
 </html>
