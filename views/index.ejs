@@ -6,14 +6,25 @@
     <title>Rate Flow</title>
 </head>
 <body>
-    <h1>Rate Flow Currency Converter</h1>
+    <h1>Rate Flow</h1>
+    <h2>Currency Converter</h2>
 
     <form action="/convert" method="POST">
         <input type="number" name="amount" id="amount" placeholder="Amount" required>
 
         <select name="fromCurrency" id="fromCurrency">
-            
+            <% currencies.forEach(([code, name]) => { %>
+                <option value="<%= code %>"><%= code %> - <%= name %></option>
+            <% }) %>
         </select>
+
+        <select name="toCurrency" id="toCurrency">
+            <% currencies.forEach(([code, name]) => { %>
+                <option value="<%= code %>"><%= code %> - <%= name %></option>
+            <% }) %>
+        </select>
+
+        <button type="submit">Convert</button>
     </form>
 </body>
 </html>

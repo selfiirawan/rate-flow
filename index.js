@@ -32,17 +32,22 @@ app.post("/convert", async (req, res) => {
     const {fromCurrency, toCurrency, amount} = req.body;
 
     try {
-        const response = await axios.get(`${API_URL}${API_KEY}/pair/${fromCurrency}/${toCurrency}`);
+        const [convertResponse, codeResponse] = await Promise.all([
+            axios.get(`${API_URL}${API_KEY}/pair/${fromCurrency}/${toCurrency}`),
+            axios.get(`${API_URL}${API_KEY}/codes`)
+        ]);
 
-        const rate = response.data.conversion_rate;
+        const rate = convertResponse.data.conversion_rate;
         const convertedAmount = (amount * rate).toFixed(2);
+        const currencies = codeResponse.data.supported_codes;
+
 
         res.render("index.ejs", {
             convertedAmount,
             fromCurrency,
             toCurrency, 
             amount,
-            currencies: response.data.supported_codes,
+            currencies,
             error: null,
         });
     } catch (error) {
