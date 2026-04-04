@@ -6,49 +6,55 @@
     <title>Rate Flow</title>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/background.css">
 </head>
 <body>
-    <h1>Rate Flow</h1>
-    <h2>Currency Converter</h2>
+    <canvas id="bg"></canvas>
 
-    <form action="/convert" method="POST">
-        <input type="number" name="amount" id="amount" placeholder="Amount" required>
+    <div class="content">
+        <h1>Rate Flow</h1>
+        <h2>Currency Converter</h2>
 
-        <!-- FROM CURRENCY -->
-        <select name="fromCurrency" id="fromCurrency">
-            <option value=""></option>
-            <% currencies.forEach(([code, name]) => { %>
-                <option value="<%= code %>" <%= locals.fromCurrency === code ? 'selected' : '' %>><%= code %> - <%= name %></option>
-            <% }) %>
-        </select>
+        <form action="/convert" method="POST">
+            <input type="number" name="amount" id="amount" placeholder="Amount" required>
 
-        <!-- REVERSE BUTTON -->
-        <button type="button" id="reverseBtn">🔄</button>
+            <!-- FROM CURRENCY -->
+            <select name="fromCurrency" id="fromCurrency">
+                <option value=""></option>
+                <% currencies.forEach(([code, name]) => { %>
+                    <option value="<%= code %>" <%= locals.fromCurrency === code ? 'selected' : '' %>><%= code %> - <%= name %></option>
+                <% }) %>
+            </select>
 
-        <!-- TO CURRENCY -->
-        <select name="toCurrency" id="toCurrency">
-            <option value=""></option>
-            <% currencies.forEach(([code, name]) => { %>
-                <option value="<%= code %>" <%= locals.toCurrency === code ? 'selected' : '' %>><%= code %> - <%= name %></option>
-            <% }) %>
-        </select>
+            <!-- REVERSE BUTTON -->
+            <button type="button" id="reverseBtn">🔄</button>
 
-        <!-- CONVERT BUTTON -->
-        <button type="submit">Convert</button>
+            <!-- TO CURRENCY -->
+            <select name="toCurrency" id="toCurrency">
+                <option value=""></option>
+                <% currencies.forEach(([code, name]) => { %>
+                    <option value="<%= code %>" <%= locals.toCurrency === code ? 'selected' : '' %>><%= code %> - <%= name %></option>
+                <% }) %>
+            </select>
+
+            <!-- CONVERT BUTTON -->
+            <button type="submit">Convert</button>
 
 
-        <!-- RESULT BUTTON -->
-        <% if (locals.convertedAmount) { %>
-            <h2><%= amount %> <%= fromCurrency %> = <%= convertedAmount %> <%= toCurrency %></h2>
-        <% } %>
+            <!-- RESULT BUTTON -->
+            <% if (locals.convertedAmount) { %>
+                <h2><%= amount %> <%= fromCurrency %> = <%= convertedAmount %> <%= toCurrency %></h2>
+            <% } %>
 
-        <% if (locals.error) { %>
-            <p style="color: red;"><%= error %></p>
-        <% } %>
-    </form>
+            <% if (locals.error) { %>
+                <p style="color: red;"><%= error %></p>
+            <% } %>
+        </form>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="/js/script.js"></script>
+    <script src="/js/background.js"></script>
 </body>
 </html>
