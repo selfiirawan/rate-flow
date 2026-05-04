@@ -42,7 +42,7 @@
             </select>
 
             <!-- CONVERT BUTTON -->
-            <button type="submit">Convert</button>
+            <!-- <button type="submit">Convert</button> -->
 
 
             <!-- RESULT BUTTON -->
@@ -63,7 +63,7 @@
                 <h1 class="display-1 fw-bold lh-1 mb-5 title">RATE<br>FLOW</h1> 
                 <p class="col-lg-10 fs-5 tag-line">Real-Time Currency Converter</p> 
             </div> 
-            <div class="col-md-10 mx-auto col-lg-5"> 
+            <!-- <div class="col-md-10 mx-auto col-lg-5"> 
                 <form class="p2 p-md-5 border rounded-5 bg-form"> 
                     <p>CONVERT HERE</p>
                     <div class="form-floating mb-3"> 
@@ -83,7 +83,53 @@
                     <hr class="my-4"> 
                     <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small> 
                 </form> 
-            </div> 
+            </div> <-->
+            <div class="col-lg-5">
+                <div class="glass-card rounded-5 p-4">
+                    <form action="/convert" method="POST">
+                        <p class="text-center opacity-50 mb-3 small">CONVERT HERE</p>
+
+                        <!-- FROM -->
+                        <p class="opacity-50">FROM</p>
+                        <div class="input-group mb-2">
+                            <select name="fromCurrency" id="fromCurrency">
+                                <option value=""></option>
+                                <% currencies.forEach(([code,name]) => { %>
+                                    <option value="<%= code %>" <%= locals.fromCurrency === code ? 'selected' : '' %>><%= code %> - <%= name %></option>
+                                <% }) %>
+                            </select>
+                            <input type="number" name="amount" id="amount" class="form-control" placeholder="0" value="<%= locals.amount || '' %>" required>
+                        </div>
+
+                        <!-- SWAP BUTTON -->
+                        <div class="text-center my-2">
+                            <button type="button" id="reverseBtn" class="btn">↕</button>
+                        </div>
+
+                        <!-- TO -->
+                        <p class="opacity-50">TO</p>
+                        <div class="input-group mb-3">
+                            <select name="toCurrency" id="toCurrency">
+                                <option value=""></option>
+                                <% currencies.forEach(([code, name]) => { %>
+                                    <option value="<%= code %>" <%= locals.toCurrency === code ? 'selected' : '' %>><%= code %> - <%= name %></option>
+                                <% }) %>
+                            </select>
+                            <input type="text" class="form-control" placeholder="0" value="<%= locals.convertedAmount || '' %>" disabled>
+                        </div>
+
+                        <!-- LIVE RATE -->
+                        <% if (locals.convertedAmount) { %>
+                            <p class="text-center opacity-50 small">1 <%= fromCurrency %> = <%= rate %> <%= toCurrency %></p>
+                        <% } %>
+
+                        <!-- CONVERT BUTTON -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn convert-btn">CONVERT</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div> 
     </div>
 

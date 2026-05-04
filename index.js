@@ -49,6 +49,7 @@ app.post("/convert", async (req, res) => {
             fromCurrency,
             toCurrency, 
             amount,
+            rate,
             currencies,
             error: null,
         });
