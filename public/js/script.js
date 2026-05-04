@@ -3,7 +3,19 @@ $(document).ready(function() {
     $(document).ready(function() {
         $('#fromCurrency, #toCurrency').select2({
             placeholder: "Select currency",
-            allowClear: true
+            allowClear: true,
+            
+            // full formatting of options (code + name) in dropdown
+            templateResult: function(option) {
+                if (!option.id) return option.text;
+                return $('<span>' + option.text + '</span>');
+            },
+
+            // only show code in the selected value
+            templateSelection: function(option) {
+                if (!option.id) return option.text;
+                return $('<span>' + option.id + '</span>');
+            }
         });
     });
 

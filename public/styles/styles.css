@@ -33,8 +33,24 @@ form {
 }
 
 .glass-card {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 2px solid #ffffff;
+}
+
+.convert-btn {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: "Syne", sans-serif;
+    transition: all 0.3s ease;
+}
+
+.convert-btn:hover {
+    transform: translateY(-3px) scale(1);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ffffff;
 }
