@@ -16,23 +16,29 @@
     <canvas id="bg"></canvas>
 
     <!-- Bootstrap starts here -->
-    <div class="container col-xl-10 col-xxl-8 px-4 py-5"> 
-        <div class="row align-items-center g-lg-5 py-5"> 
+    <div class="container px-5 py-5 mx-auto"> 
+        <div class="row align-items-start g-lg-5 py-5"> 
 
             <!-- TITLE  -->
-            <div class="col-lg-7 text-lg-start"> 
+            <div class="col-lg-6 text-lg-startd-flex flex-column" style="min-height: 400px;"> 
                 <h1 class="display-1 fw-bold lh-1 mb-5 title">RATE<br>FLOW</h1> 
                 <p class="col-lg-10 fs-5 tag-line">Real-Time Currency Converter</p> 
+
+                <div class="mt-auto">
+                    <% if (locals.lastUpdated) { %>
+                        <p class="opacity-25 small text-white">Last updated: <%= lastUpdated %></p>
+                    <% } %>
+                </div>
             </div> 
             
             <!-- FORM -->
-            <div class="col-lg-5">
-                <div class="glass-card rounded-5 p-4">
+            <div class="col-lg-6">
+                <div class="glass-card rounded-5 p-4 shadow">
                     <form action="/convert" method="POST">
                         <p class="text-center opacity-50 mb-3 small">CONVERT HERE</p>
 
                         <!-- FROM -->
-                        <p class="opacity-50">FROM</p>
+                        <p class="opacity-50 mt-4">FROM</p>
                         <div class="d-flex gap-2 mb-2">
                             <select name="fromCurrency" id="fromCurrency" style="width: 40%;">
                                 <option value=""></option>

@@ -11,9 +11,9 @@ body {
     color: #000000;
 }
 
-.container {
+/* .container {
     border: 1px solid #ffffff;
-}
+} */
 
 .title {
     font-family: "DM Sans", sans-serif;
@@ -53,4 +53,36 @@ form {
     transform: translateY(-3px) scale(1);
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
     border: 1px solid #ffffff;
+}
+
+/* Currency and amount inputs */
+.select2-container {
+    width: auto !important;
+}
+
+.select2-container--default .select2-selection--single {
+    background: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-right: none !important;
+    border-radius: 50px 0 0 50px !important;
+    height: 46px !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 12px !important;
+    min-width: 110px;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-left: none !important;
+    border-radius: 0 50px 50px 0 !important;
+    color: #ffffff !important;
+    height: 46px !important;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

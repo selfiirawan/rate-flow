@@ -1,22 +1,20 @@
 $(document).ready(function() {
     // search bar
-    $(document).ready(function() {
-        $('#fromCurrency, #toCurrency').select2({
-            placeholder: "Select currency",
-            allowClear: true,
-            
-            // full formatting of options (code + name) in dropdown
-            templateResult: function(option) {
-                if (!option.id) return option.text;
-                return $('<span>' + option.text + '</span>');
-            },
+    $('#fromCurrency, #toCurrency').select2({
+        placeholder: "Select currency",
+        allowClear: true,
+        dropdownParent: $('body'),
+        // full formatting of options (code + name) in dropdown
+        templateResult: function(option) {
+            if (!option.id) return option.text;
+            return $('<span>' + option.text + '</span>');
+        },
 
-            // only show code in the selected value
-            templateSelection: function(option) {
-                if (!option.id) return option.text;
-                return $('<span>' + option.id + '</span>');
-            }
-        });
+        // only show code in the selected value
+        templateSelection: function(option) {
+            if (!option.id) return option.text;
+            return $('<span>' + option.id + '</span>');
+        }
     });
 
     // reverse button

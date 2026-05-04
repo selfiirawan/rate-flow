@@ -42,7 +42,13 @@ app.post("/convert", async (req, res) => {
         const rate = convertResponse.data.conversion_rate;
         const convertedAmount = (amount * rate).toFixed(2);
         const currencies = codeResponse.data.supported_codes;
-
+        const rawDate = convertResponse.data.time_last_update_utc;
+        const lastUpdated = new Date(rawDate).toLocaleString("en-US", {
+            timeZone: "UTC",
+            year: "numeric",
+            month: "short",
+            day: "numeric"
+        });
 
         res.render("index.ejs", {
             convertedAmount,
@@ -51,6 +57,7 @@ app.post("/convert", async (req, res) => {
             amount,
             rate,
             currencies,
+            lastUpdated,
             error: null,
         });
     } catch (error) {
