@@ -11,9 +11,10 @@ body {
     color: #000000;
 }
 
-/* .container {
+.container {
     border: 1px solid #ffffff;
-} */
+    max-height: max-content;
+}
 
 .title {
     font-family: "DM Sans", sans-serif;
@@ -37,6 +38,7 @@ form {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 2px solid #ffffff;
+    height: 500px;
 }
 
 .convert-btn {
@@ -47,6 +49,7 @@ form {
     cursor: pointer;
     font-family: "Syne", sans-serif;
     transition: all 0.3s ease;
+    margin-top: 50px;
 }
 
 .convert-btn:hover {
@@ -85,4 +88,15 @@ input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+#reverseBtn {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
 }

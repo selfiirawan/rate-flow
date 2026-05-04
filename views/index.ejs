@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="/styles/styles.css">
     <link rel="stylesheet" href="/styles/background.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
     <canvas id="bg"></canvas>
@@ -50,8 +51,10 @@
                         </div>
 
                         <!-- SWAP BUTTON -->
-                        <div class="text-center my-2">
-                            <button type="button" id="reverseBtn" class="btn">↕</button>
+                        <div class="text-center my-2 mt-4">
+                            <button type="button" id="reverseBtn" class="btn">
+                                <i class="bi bi-arrow-down-up"></i>
+                            </button>
                         </div>
 
                         <!-- TO -->
@@ -72,7 +75,7 @@
                         <% } %>
 
                         <!-- CONVERT BUTTON -->
-                        <div class="d-grid mx-auto mt-5" style="width: 50%;">
+                        <div class="d-grid mx-auto" style="width: 50%;">
                             <button type="submit" class="btn convert-btn rounded-5">CONVERT</button>
                         </div>
                     </form>
