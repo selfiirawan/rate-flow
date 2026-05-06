@@ -22,8 +22,8 @@
 
 ## 📸 Screenshots
 
-![Homepage](images/homepage.png)
-![Result](images/result.png)
+![Homepage](public/images/homepage.png)
+![Result](public/images/result.png)
 
 ---
 
