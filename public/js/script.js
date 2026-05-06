@@ -5,7 +5,7 @@ $(document).ready(function() {
     // search bar
     $('#fromCurrency, #toCurrency').select2({
         placeholder: "Select currency",
-        allowClear: true,
+        // allowClear: true,
         dropdownParent: $('body'),
         // full formatting of options (code + name) in dropdown
         templateResult: function(option) {
