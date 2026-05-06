@@ -1,5 +1,10 @@
 body {
     color: #fff;
+    visibility: hidden;
+}
+
+body.loaded {
+    visibility: visible;
 }
 
 .select2-dropdown {
@@ -11,10 +16,9 @@ body {
     color: #000000;
 }
 
-.container {
-    border: 1px solid #ffffff;
+/* .container {
     max-height: max-content;
-}
+} */
 
 .title {
     font-family: "DM Sans", sans-serif;
@@ -61,6 +65,7 @@ form {
 /* Currency and amount inputs */
 .select2-container {
     width: auto !important;
+    min-width: 120px;
 }
 
 .select2-container--default .select2-selection--single {
@@ -82,6 +87,25 @@ form {
     border-radius: 0 50px 50px 0 !important;
     color: #ffffff !important;
     height: 46px !important;
+}
+
+.select2-dropdown {
+    width: 300px !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    background: #1a1b1f !important;
+    overflow: hidden;
+}
+
+.select2-results__option {
+    padding: 10px 16px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.select2-container--default .select2-results__option--highlighted {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
 }
 
 input[type="number"]::-webkit-outer-spin-button,

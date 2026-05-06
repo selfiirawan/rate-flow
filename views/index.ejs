@@ -41,7 +41,7 @@
                         <!-- FROM -->
                         <p class="opacity-50 mt-4">FROM</p>
                         <div class="d-flex gap-2 mb-2">
-                            <select name="fromCurrency" id="fromCurrency" style="width: 40%;">
+                            <select name="fromCurrency" id="fromCurrency">
                                 <option value=""></option>
                                 <% currencies.forEach(([code,name]) => { %>
                                     <option value="<%= code %>" <%= locals.fromCurrency === code ? 'selected' : '' %>><%= code %> - <%= name %></option>
@@ -60,7 +60,7 @@
                         <!-- TO -->
                         <p class="opacity-50">TO</p>
                         <div class="d-flex gap-2 mb-3">
-                            <select name="toCurrency" id="toCurrency" style="width: 40%;">
+                            <select name="toCurrency" id="toCurrency">
                                 <option value=""></option>
                                 <% currencies.forEach(([code, name]) => { %>
                                     <option value="<%= code %>" <%= locals.toCurrency === code ? 'selected' : '' %>><%= code %> - <%= name %></option>
@@ -82,6 +82,14 @@
                 </div>
             </div>
         </div> 
+    </div>
+
+    <div class="container">
+        <footer class="pt-5 mt-3 mb-0 text-center">
+            <p class="opacity-25 small">
+                © 2026 Rate Flow. All rights reserved.
+            </p>
+        </footer>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

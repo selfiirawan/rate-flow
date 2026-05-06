@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+    $('body').addClass('loaded');
+
     // search bar
     $('#fromCurrency, #toCurrency').select2({
         placeholder: "Select currency",
