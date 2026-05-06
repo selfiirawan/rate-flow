@@ -19,6 +19,7 @@ canvas#bg {
     inset: 0;
     z-index: 0;
     opacity: 1;
+    pointer-events: none;
 }
 
 body::after {
