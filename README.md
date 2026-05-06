@@ -22,7 +22,8 @@
 
 ## 📸 Screenshots
 
-<!-- Add your screenshots here -->
+![Homepage](images/homepage.png)
+![Result](images/result.png)
 
 ---
 
